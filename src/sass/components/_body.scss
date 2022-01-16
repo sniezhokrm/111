@@ -1,0 +1,200 @@
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+h1 {
+  display: block;
+  z-index: 100;
+  background-color: white;
+
+}
+.status {
+  padding: 20px 0;
+  background-color: $icon;
+  text-align: center;
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.navbar-brand {
+  cursor: default;
+}
+.carousel-bilboard {
+  min-height: 400px;
+  display: block;
+}
+
+.collapse.navbar-collapse {
+  display: block;
+  height: 0;
+  width: 30%;
+  transition: 0.7s all;
+}
+
+.benefits {
+  color: $darkgrey;
+  text-align: center;
+  margin-top: 60px;
+  padding: 40px 30px;
+  min-height: 400px;
+  background-color: $icon;
+
+  &-block {
+    margin-top: 40px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &-desc {
+    min-height: 40px;
+  }
+  &-item {
+    margin-right: 30px;
+    display: block;
+    height: 160px;
+    width: 25%;
+    font-style: italic;
+
+    img {
+      margin-top: 20px;
+      height: 40px;
+    }
+  }
+}
+
+#map {
+  display: block;
+  height: 580px;
+  text-align: center;
+  padding: 40px 30px;
+  margin: 40px auto;
+
+  h3 {
+    margin-bottom: 40px;
+  }
+}
+
+.about {
+  display: block;
+  background-color: $icon;
+  margin-top: 60px;
+  padding: 40px 30px;
+  text-indent: 1.5em;
+
+  h3 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.8;
+    font-style: italic;
+    text-align: justify;
+    text-indent: inherit;
+  }
+}
+
+.footer {
+  color: white;
+  min-height: 100px;
+  margin-top: 60px;
+  padding: 40px 50px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-basis: 0;
+  justify-content: space-between;
+  background-color: $darkgrey;
+
+  &-item {
+    text-align: center;
+
+    img {
+      margin-top: 20px;
+      display: inline-block;
+      width: 20%;
+    }
+
+    li {
+      list-style-type: none;
+      text-align: left;
+      margin-top: 5px;
+    }
+
+    h6 {
+      margin: 20px auto;
+      text-transform: uppercase;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+
+.pageup {
+  opacity: 0;
+  width: 38px;
+  height: 38px;
+  position: fixed;
+  bottom: 100px;
+  right: 5%;
+  z-index: 30;
+  cursor: pointer;
+  transition: 1s all;
+  img {
+    width: 100%;
+  }
+}
+
+.call {
+  position: fixed;
+  z-index: 100;
+  bottom: -100%;
+  left: 5%;
+  width: 120px;
+  transition: 1s all;
+  img {
+    width: 100%;
+    background-color: none;
+    cursor: pointer;
+  }
+}
+
+.modal {
+  height: 300px;
+  &-body {
+    input {
+      padding: 5px;
+      width: 85%;
+      margin-bottom: 10px;
+    }
+  }
+  &-text {
+    height: 80px;
+  }
+  img {
+    height: 40%;
+  }
+}
+
+.btn.btn-success {
+  background-color: #2094f2;
+}
+
+.status {
+  img{
+    width: 20%;
+    margin: 10px auto;
+  }
+}
