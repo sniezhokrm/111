@@ -33,6 +33,11 @@
             cursor: pointer;
         }
     }
+    &-text {
+      white-space: normal;
+      width: 85%;
+      padding: 5px;
+    }
     &-header, &-body {
         padding: 15px;
         border-bottom: 1px solid #dee2e6;

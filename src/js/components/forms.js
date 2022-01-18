@@ -1,10 +1,10 @@
 const forms = () => {
   const form = document.querySelectorAll('form'),
-    inputs = document.querySelectorAll('input');
+    inputs = document.querySelectorAll('input, textarea');
 
   const message = {
     loading: 'Загрузка...',
-    success: 'Дякую! Скоро ми з вами звяжимось',
+    success: "Дякую! Скоро ми з вами зв'яжимось",
     failure: 'Щось пішло не так...',
     spinner: 'assets/icons/spinner.gif',
     ok: 'assets/icons/ok.png',
@@ -17,6 +17,8 @@ const forms = () => {
     });
   };
 
+  
+
   form.forEach(item => {
     item.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -24,6 +26,8 @@ const forms = () => {
       const phone = document.querySelector('[name="phone"]').value;
       const email = document.querySelector('#email').value;
       const messageInput = document.querySelector('[name="message"]').value;
+
+      document.querySelector('.modal-header').style.display = 'none';
 
       let statusMessage = document.createElement('div');
       statusMessage.classList.add('status');
@@ -75,6 +79,7 @@ const forms = () => {
             $('.modal').fadeOut(500);
             document.body.style.overflow = '';
             document.body.style.marginRight = `0px`;
+            document.querySelector('.modal-header').style.display = 'block';
           }, 2000);
         });
     });

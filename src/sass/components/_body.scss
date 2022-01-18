@@ -1,29 +1,54 @@
-
 body {
   font-family: 'Roboto', sans-serif;
 }
-h1 {
-  display: block;
-  z-index: 100;
-  background-color: white;
 
+h1 {}
+
+h3 {
+  font-weight: 500;
 }
+
+.header {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: black;
+  margin-right: 10px;
+}
+
 .status {
   padding: 20px 0;
   background-color: $icon;
   text-align: center;
+
   img {
     display: block;
     margin: 0 auto;
   }
 }
 
-.navbar-brand {
-  cursor: default;
+.navbar {
+  width: inherit;
+  &-brand {
+    cursor: default;
+  }
 }
-.carousel-bilboard {
-  min-height: 400px;
-  display: block;
+
+.carousel {
+  &-bilboard {
+    min-height: 400px;
+    display: block;
+  }
+
+  &-text {
+    letter-spacing: 0.5px;
+    color: darkgrey;
+  }
+
+  &-desc {
+    right: -80px;
+    z-index: 9;
+    bottom: 23%;
+  }
 }
 
 .collapse.navbar-collapse {
@@ -46,12 +71,14 @@ h1 {
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
   }
+
   &-desc {
-    min-height: 40px;
+    min-height: 60px;
   }
+
   &-item {
     margin-right: 30px;
     display: block;
@@ -70,7 +97,7 @@ h1 {
   display: block;
   height: 580px;
   text-align: center;
-  padding: 40px 30px;
+  padding: 40px 0;
   margin: 40px auto;
 
   h3 {
@@ -117,7 +144,7 @@ h1 {
     img {
       margin-top: 20px;
       display: inline-block;
-      width: 20%;
+      width: 30%;
     }
 
     li {
@@ -152,6 +179,7 @@ h1 {
   z-index: 30;
   cursor: pointer;
   transition: 1s all;
+
   img {
     width: 100%;
   }
@@ -164,6 +192,7 @@ h1 {
   left: 5%;
   width: 120px;
   transition: 1s all;
+
   img {
     width: 100%;
     background-color: none;
@@ -173,6 +202,7 @@ h1 {
 
 .modal {
   height: 300px;
+
   &-body {
     input {
       padding: 5px;
@@ -180,9 +210,11 @@ h1 {
       margin-bottom: 10px;
     }
   }
+
   &-text {
     height: 80px;
   }
+
   img {
     height: 40%;
   }
@@ -193,7 +225,7 @@ h1 {
 }
 
 .status {
-  img{
+  img {
     width: 20%;
     margin: 10px auto;
   }

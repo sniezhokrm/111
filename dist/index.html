@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link type="image/x-icon" href="assets/icons/bilboard.png" rel="shortcut icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/lib.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/lib.css">
+  <link rel="stylesheet" href="css/style.css">
 
   <title>Bilboard</title>
 </head>
@@ -20,7 +21,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-20">
         <div class="container-fluid">
           <a class="navbar-brand" href="#up">
-            <img src="/assets/icons/bilboard.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            <img src="assets/icons/bilboard.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
             Оренда білборда
           </a>
           <button id="hamburger" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,9 +48,9 @@
     </header>
 
     <body>
-        <h1 class="text-center mt-20">Розміщуємо зовнішню рекламу на двох площинах,
-          трасса H-18, Тернопіль - Ів-Франківськ</h1>
-      <div class="h3 text-center mt-20">Вигідне розташування білборду</div>
+      <h1 class="text-center mt-20">Розміщуємо зовнішню рекламу на двох площинах,
+        трасса H-18, Тернопіль - Ів-Франківськ</h1>
+      <h3 class="text-center mt-20">Вигідне розташування білборду</h3>
 
       <div id="carousel" class="carousel-bilboard mt-20" data-on="carousel-1"> </div>
 
@@ -58,27 +59,27 @@
         <div class="benefits-block">
           <div class="benefits-item">
             <div class="benefits-desc">Вигідне місце розташування</div>
-            <img src="/assets/icons/benefits-1.svg" alt="">
+            <img src="assets/icons/benefits-1.svg" alt="">
           </div>
           <div class="benefits-item">
             <div class="benefits-desc">Демократичні ціни</div>
-            <img src="/assets/icons/benefits-2.svg" alt="">
+            <img src="assets/icons/benefits-2.svg" alt="">
           </div>
           <div class="benefits-item">
             <div class="benefits-desc">Програма знижок</div>
-            <img src="/assets/icons/benefits-3.svg" alt="">
+            <img src="assets/icons/benefits-3.svg" alt="">
           </div>
           <div class="benefits-item">
             <div class="benefits-desc">Офіційний договір</div>
-            <img src="/assets/icons/benefits-4.svg" alt="">
+            <img src="assets/icons/benefits-4.svg" alt="">
           </div>
           <div class="benefits-item">
             <div class="benefits-desc">Безготівковий та готівковий розрахунок</div>
-            <img src="/assets/icons/benefits-5.svg" alt="">
+            <img src="assets/icons/benefits-5.svg" alt="">
           </div>
           <div class="benefits-item">
             <div class="benefits-desc">Освітлення в нічну пору доби</div>
-            <img src="/assets/icons/benefits-6.svg" alt="">
+            <img src="assets/icons/benefits-6.svg" alt="">
           </div>
         </div>
       </div>
@@ -87,7 +88,7 @@
         <h3>Наше розташування на карті</h3>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2591.078134915304!2d25.609201315013287!3d49.501918463133826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x444f8f791002a0d9!2zNDnCsDMwJzA2LjkiTiAyNcKwMzYnNDEuMCJF!5e0!3m2!1sru!2sua!4v1641639665556!5m2!1sru!2sua"
-          width="88%" height="450" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
+          width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
       </div>
 
       <div id="about" class="about">
@@ -107,7 +108,7 @@
       <footer>
         <div id="footer" class="footer">
           <div class="footer-item">
-            <img src="/assets/icons/bilboard.png" alt="">
+            <img src="assets/icons/bilboard.png" alt="">
             <h6>ФО Снєжок Р.М.</h6>
           </div>
           <div class="footer-item">
@@ -159,20 +160,22 @@
             <button class="btn btn-success">Відправити дані</button>
           </div>
         </form>
+
       </div>
     </div>
   </div>
 
 
   <a href="#up" class="pageup">
-    <img src="/assets/icons/arrow-up.png" alt="">
+    <img src="assets/icons/arrow-up.png" alt="">
   </a>
 
   <div href="tel:+380988360066" class="call">
-    <img src="/assets/icons/call.gif" alt="" data-toggle="modal" data-target="#call">
+    <img src="assets/icons/call.gif" alt="" data-toggle="modal" data-target="#call">
   </div>
 
-  <script src="https://smtpjs.com/v3/smtp.js"></script> //send email
+  <!-- send email -->
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script src="lib.js"></script>
   <script src="script.js"></script>
 </body>

@@ -86,6 +86,66 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/js/components/animation.js":
+/*!****************************************!*\
+  !*** ./src/js/components/animation.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const animation = function () {
+  let selector = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+  let style = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+  let repeat = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+  // Получаем нужный элемент
+  const element = document.querySelectorAll(selector);
+  element.forEach((item, i) => {
+    const visible = function (target) {
+      // Все позиции элемента
+      const targetPosition = {
+        top: window.pageYOffset + target.getBoundingClientRect().top,
+        left: window.pageXOffset + target.getBoundingClientRect().left,
+        right: window.pageXOffset + target.getBoundingClientRect().right,
+        bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+      },
+            // Получаем позиции окна
+      windowPosition = {
+        top: window.pageYOffset,
+        left: window.pageXOffset,
+        right: window.pageXOffset + document.documentElement.clientWidth,
+        bottom: window.pageYOffset + document.documentElement.clientHeight
+      };
+
+      if (targetPosition.bottom > windowPosition.top && // Если позиция нижней части элемента больше позиции верхней чайти окна, то элемент виден сверху
+      targetPosition.top < windowPosition.bottom && // Если позиция верхней части элемента меньше позиции нижней чайти окна, то элемент виден снизу
+      targetPosition.right > windowPosition.left && // Если позиция правой стороны элемента больше позиции левой части окна, то элемент виден слева
+      targetPosition.left < windowPosition.right) {
+        // Если позиция левой стороны элемента меньше позиции правой чайти окна, то элемент виден справа
+        // Если элемент полностью видно, то запускаем следующий код
+        $(target).addClass('animate__animated', style);
+      } else {
+        // Если элемент не видно, то запускаем этот код
+        $(target).removeClass(style);
+      }
+    }; // Запускаем функцию при прокрутке страницы
+
+
+    window.addEventListener('scroll', function () {
+      if (repeat || !item.classList.contains('animate__animated')) {
+        visible(item);
+      }
+    }); // А также запустим функцию сразу. А то вдруг, элемент изначально видно
+
+    visible(item);
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (animation);
+
+/***/ }),
+
 /***/ "./src/js/components/call.js":
 /*!***********************************!*\
   !*** ./src/js/components/call.js ***!
@@ -98,7 +158,7 @@ __webpack_require__.r(__webpack_exports__);
 const call = delay => {
   const callIcon = document.querySelector('.call');
   setTimeout(() => {
-    callIcon.style.bottom = '5%';
+    callIcon.style.bottom = '9%';
   }, delay);
 };
 
@@ -163,10 +223,10 @@ const checkTextInputs = selector => {
 __webpack_require__.r(__webpack_exports__);
 const forms = () => {
   const form = document.querySelectorAll('form'),
-        inputs = document.querySelectorAll('input');
+        inputs = document.querySelectorAll('input, textarea');
   const message = {
     loading: 'Загрузка...',
-    success: 'Дякую! Скоро ми з вами звяжимось',
+    success: "Дякую! Скоро ми з вами зв'яжимось",
     failure: 'Щось пішло не так...',
     spinner: 'assets/icons/spinner.gif',
     ok: 'assets/icons/ok.png',
@@ -186,6 +246,7 @@ const forms = () => {
       const phone = document.querySelector('[name="phone"]').value;
       const email = document.querySelector('#email').value;
       const messageInput = document.querySelector('[name="message"]').value;
+      document.querySelector('.modal-header').style.display = 'none';
       let statusMessage = document.createElement('div');
       statusMessage.classList.add('status');
       item.parentNode.appendChild(statusMessage);
@@ -229,6 +290,7 @@ const forms = () => {
           $('.modal').fadeOut(500);
           document.body.style.overflow = '';
           document.body.style.marginRight = `0px`;
+          document.querySelector('.modal-header').style.display = 'block';
         }, 2000);
       });
     });
@@ -254,11 +316,13 @@ const menuHamburger = () => {
 
   function toggleMenu() {
     if (window.getComputedStyle(menu).height == '0px') {
+      document.querySelector('.navbar-nav').style.display = 'block';
       btn.style.boxShadow = '0 0 0 0.25rem';
       menu.style.height = '160px';
     } else {
       btn.style.boxShadow = 'none';
       menu.style.height = '0px';
+      setTimeout(() => document.querySelector('.navbar-nav').style.display = 'none', 700);
     }
   }
 
@@ -266,8 +330,9 @@ const menuHamburger = () => {
     toggleMenu();
   });
   $('.container-fluid').on('mouseleave', function () {
-    menu.style.height = '0px';
     btn.style.boxShadow = 'none';
+    menu.style.height = '0px';
+    setTimeout(() => document.querySelector('.navbar-nav').style.display = 'none', 700);
   });
 };
 
@@ -392,6 +457,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_checkNumInputs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/checkNumInputs */ "./src/js/components/checkNumInputs.js");
 /* harmony import */ var _components_checkTextInputs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/checkTextInputs */ "./src/js/components/checkTextInputs.js");
 /* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/forms */ "./src/js/components/forms.js");
+/* harmony import */ var _components_animation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/animation */ "./src/js/components/animation.js");
+
 
 
 
@@ -401,23 +468,34 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener("DOMContentLoaded", function (event) {
   'use strict';
 
-  $('.navbar-brand').click(e => e.preventDefault());
+  Object(_components_animation__WEBPACK_IMPORTED_MODULE_6__["default"])('.navbar-brand img', "animate__heartBeat", false);
+  Object(_components_animation__WEBPACK_IMPORTED_MODULE_6__["default"])('.benefits-item img', "animate__bounce");
+  Object(_components_animation__WEBPACK_IMPORTED_MODULE_6__["default"])('.footer-item img', "animate__heartBeat", false);
   Object(_components_checkTextInputs__WEBPACK_IMPORTED_MODULE_4__["default"])('.modal-name');
   Object(_components_checkNumInputs__WEBPACK_IMPORTED_MODULE_3__["default"])('.modal-phone');
-  Object(_components_call__WEBPACK_IMPORTED_MODULE_2__["default"])(1000);
+  Object(_components_call__WEBPACK_IMPORTED_MODULE_2__["default"])(2000);
   Object(_components_menu_hamburger__WEBPACK_IMPORTED_MODULE_0__["default"])();
   Object(_components_scrolling__WEBPACK_IMPORTED_MODULE_1__["default"])('.pageup');
   Object(_components_forms__WEBPACK_IMPORTED_MODULE_5__["default"])();
   $('[data-on="carousel-1"]').createCarousel({
     slides: {
-      0: "/assets/img/bilboard-1-min.jpg",
-      1: "/assets/img/bilboard-2-min.jpg",
-      2: "/assets/img/bilboard-3-min.jpg"
+      0: "assets/img/bilboard-1-min.jpg",
+      1: "assets/img/bilboard-2-min.jpg",
+      2: "assets/img/bilboard-3-min.jpg"
+    },
+    desc: {
+      0: "Напрямок Тернопіль-Чернівці",
+      1: "Виїзд з села Острів",
+      2: "Нічне освітлення білборду"
     },
     autoPlay: 4000,
     length: 3
+  }); // corect bag, carousel reset width slides
+
+  window.addEventListener('resize', function () {
+    window.location.reload();
   });
-  $('[data-toggle="modal"]').modal(); //modal write in HTML
+  $('[data-toggle="modal"]').modal();
 });
 
 /***/ })

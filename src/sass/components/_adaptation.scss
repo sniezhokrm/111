@@ -1,0 +1,128 @@
+@media screen and (max-width: 990px) {
+  .navbar-nav {
+    display: none;
+  }
+}
+@media screen and (max-width: 700px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h6 {
+    font-size: 12px;
+  }
+
+  .carousel {
+    &-text {
+      font-size: 20px;
+    }
+  }
+
+  .footer {
+    &-item {
+      img {
+        width: 30%;
+      }
+
+      li {
+        font-size: 10px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 621px) {
+  .carousel {
+    &-desc {
+      display: none;
+    }
+  }
+
+  .footer {
+    padding: 20px 10px;
+  }
+}
+@media screen and (max-width: 540px) {
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .benefits-desc {
+    font-size: 13px;
+  }
+
+  .about p {
+    font-size: 16px;
+  }
+  .navbar-brand {
+    font-size: 16px;
+  }
+  .footer {
+    justify-content: space-around;
+    &-item {
+      &:nth-child(4) {
+        display: none;
+      }
+  }
+}
+}
+
+@media screen and (max-width: 440px) {
+  h6 {
+    font-size: 10px;
+  }
+
+  .about p {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 15px;
+  }
+
+  h3 {
+    font-size: 12px;
+  }
+
+  .navbar-brand {
+    display: none;
+  }
+
+  .navbar > .container,
+  .navbar > .container-fluid,
+  .navbar > .container-lg,
+  .navbar > .container-md,
+  .navbar > .container-sm,
+  .navbar > .container-xl,
+  .navbar > .container-xxl {
+    justify-content: end;
+  }
+
+  .benefits-item {
+    margin-right: 0;
+    width: 90%;
+  }
+
+  .about {
+    padding: 30px 14px;
+  }
+
+  .footer {
+    &-item {
+      &:nth-child(3) {
+        display: none;
+      }
+      ul {
+        padding-left: 5px;
+      }
+    }
+  }
+}
