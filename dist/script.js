@@ -330,9 +330,11 @@ const menuHamburger = () => {
     toggleMenu();
   });
   $('.container-fluid').on('mouseleave', function () {
-    btn.style.boxShadow = 'none';
-    menu.style.height = '0px';
-    setTimeout(() => document.querySelector('.navbar-nav').style.display = 'none', 700);
+    if (window.getComputedStyle(menu).height !== '0px') {
+      btn.style.boxShadow = 'none';
+      menu.style.height = '0px';
+      setTimeout(() => document.querySelector('.navbar-nav').style.display = 'none', 700);
+    }
   });
 };
 
@@ -473,7 +475,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   Object(_components_animation__WEBPACK_IMPORTED_MODULE_6__["default"])('.footer-item img', "animate__heartBeat", false);
   Object(_components_checkTextInputs__WEBPACK_IMPORTED_MODULE_4__["default"])('.modal-name');
   Object(_components_checkNumInputs__WEBPACK_IMPORTED_MODULE_3__["default"])('.modal-phone');
-  Object(_components_call__WEBPACK_IMPORTED_MODULE_2__["default"])(2000);
+  Object(_components_call__WEBPACK_IMPORTED_MODULE_2__["default"])(5000);
   Object(_components_menu_hamburger__WEBPACK_IMPORTED_MODULE_0__["default"])();
   Object(_components_scrolling__WEBPACK_IMPORTED_MODULE_1__["default"])('.pageup');
   Object(_components_forms__WEBPACK_IMPORTED_MODULE_5__["default"])();
@@ -490,10 +492,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     },
     autoPlay: 4000,
     length: 3
-  }); // corect bag, carousel reset width slides
-
-  window.addEventListener('resize', function () {
-    window.location.reload();
   });
   $('[data-toggle="modal"]').modal();
 });

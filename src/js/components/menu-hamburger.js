@@ -18,9 +18,14 @@ const menuHamburger = () => {
     toggleMenu();
   });
   $('.container-fluid').on('mouseleave', function() {
+    if (window.getComputedStyle(menu).height !== '0px') {
     btn.style.boxShadow = 'none';
     menu.style.height = '0px';
     setTimeout(() => document.querySelector('.navbar-nav').style.display = 'none', 700);
+  }
   });
+
+
+
 };
 export default menuHamburger;

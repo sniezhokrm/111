@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   animation('.footer-item img', "animate__heartBeat", false);
   checkTextInputs('.modal-name');
   checkNumInputs('.modal-phone');
-  call(2000);
+  call(5000);
   menuHamburger();
   scrolling('.pageup');
   forms();
@@ -34,10 +34,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     autoPlay: 4000,
     length: 3
   });
-  // corect bag, carousel reset width slides
-  window.addEventListener('resize',function(){
-      window.location.reload();
-  });
+
 
   $('[data-toggle="modal"]').modal();
 

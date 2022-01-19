@@ -25,7 +25,7 @@
   .footer {
     &-item {
       img {
-        width: 30%;
+        width: 24%;
       }
 
       li {
@@ -46,7 +46,6 @@
   }
 }
 @media screen and (max-width: 540px) {
-
   h1 {
     font-size: 20px;
   }
@@ -62,19 +61,21 @@
   .about p {
     font-size: 16px;
   }
+
   .navbar-brand {
     font-size: 16px;
   }
+
   .footer {
     justify-content: space-around;
+
     &-item {
       &:nth-child(4) {
         display: none;
       }
+    }
   }
 }
-}
-
 @media screen and (max-width: 440px) {
   h6 {
     font-size: 10px;
@@ -85,11 +86,11 @@
   }
 
   h1 {
-    font-size: 15px;
+    font-size: 18px;
   }
 
   h3 {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .navbar-brand {
@@ -109,6 +110,13 @@
   .benefits-item {
     margin-right: 0;
     width: 90%;
+    img {
+      margin-top: 0;
+    }
+  }
+
+  .benefits-desc {
+    min-height: 50px;
   }
 
   .about {
@@ -120,9 +128,28 @@
       &:nth-child(3) {
         display: none;
       }
+
       ul {
         padding-left: 5px;
       }
     }
+  }
+
+  .modal {
+    &-title {
+      font-size: 13px;
+    }
+    &-footer {
+      padding: 0;
+      margin-bottom: 22px;
+    }
+    input::placeholder {
+      font-size: 12px;
+    }
+  }
+  .btn {
+    width: 45%;
+    height: 30px;
+    padding: 3px 3px;
   }
 }

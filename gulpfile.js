@@ -6,6 +6,10 @@ const webpack = require("webpack-stream");
 const browsersync = require("browser-sync");
 const sass = require('gulp-sass')(require('sass'));
 const minifycss = require('gulp-minify-css');
+const autoprefixer = require("autoprefixer");
+const cleanCSS = require("gulp-clean-css");
+const postcss = require("gulp-postcss");
+
 
 const dist = "./dist/";
 // const dist = "/Applications/MAMP/htdocs/test"; // Ссылка на вашу папку на сервере
@@ -60,7 +64,7 @@ gulp.task("sass", function() { // Создаем таск "sass"
 gulp.task("minifycss", function() {
   return gulp.src('./src/css/*.*') // Файл для работы
     .pipe(minifycss()) // Выполняем сжатие
-    .pipe(gulp.dest("./dist/css/")); // выходная папка
+    .pipe(gulp.dest(dist + "/css")); // выходная папка
 });
 
 gulp.task("copy-assets", () => {
@@ -95,7 +99,13 @@ gulp.task("watch", () => {
 gulp.task("build", gulp.parallel("copy-html", "copy-assets", "build-js",
   "sass", "minifycss"));
 
-gulp.task("build-prod-js", () => {
+gulp.task("prod", () => {
+  gulp.src("./src/sass/style.scss")
+      .pipe(sass().on('error', sass.logError))
+      .pipe(postcss([autoprefixer()]))
+      .pipe(cleanCSS())
+      .pipe(gulp.dest(dist + "/css"));
+
   return gulp.src("./src/js/main.js")
     .pipe(webpack({
       mode: 'production',
